@@ -1,0 +1,76 @@
+.app-header.header.hor-topheader.d-flex
+    .container
+        .d-flex
+            a.header-brand(href='/')
+                img.header-brand-img.main-logo(src='/assets/images/brand/hfusion.png', alt='Hogo logo')
+                img.header-brand-img.icon-logo(src='/assets/images/brand/hfusion.png', alt='Hogo logo')
+            // logo
+            a#horizontal-navtoggle.animated-arrow.hor-toggle
+                span
+
+            .d-flex.order-lg-2.ml-auto.header-rightmenu
+                // full-screen
+                .dropdown.header-notify
+                    a.nav-link.icon(data-toggle='dropdown', aria-expanded='false')
+                        i.fe.fe-bell
+                        span.pulse.bg-success
+                    .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                        a.dropdown-item.text-center(href='#') 4 New Notifications
+                        .dropdown-divider
+                        a.dropdown-item.d-flex.pb-3(href='#')
+                            .notifyimg.bg-green
+                                i.fe.fe-mail
+                            div
+                                strong Message Sent.
+                                .small.text-muted 12 mins ago
+                        a.dropdown-item.d-flex.pb-3(href='#')
+                            .notifyimg.bg-pink
+                                i.fe.fe-shopping-cart
+                            div
+                                strong Order Placed
+                                .small.text-muted 2  hour ago
+                        a.dropdown-item.d-flex.pb-3(href='#')
+                            .notifyimg.bg-blue
+                                i.fe.fe-calendar
+                            div
+                                strong  Event Started
+                                .small.text-muted 1  hour ago
+                        a.dropdown-item.d-flex.pb-3(href='#')
+                            .notifyimg.bg-orange
+                                i.fe.fe-monitor
+                            div
+                                strong Your Admin Lanuch
+                                .small.text-muted 2  days ago
+                        .dropdown-divider
+                        a.dropdown-item.text-center(href='#') View all Notifications
+                
+                // notifications
+                .dropdown.header-user
+                    a.nav-link.leading-none.siderbar-link(data-toggle='sidebar-right', data-target='.sidebar-right')
+                        span.mr-3.d-none.d-lg-block
+                            span.text-gray-white
+                                span.ml-2 User
+                        span.avatar.avatar-md.brround
+                            img.avatar.avatar-md.brround(src='/assets/images/users/female/33.png', alt='Profile-img')
+                    .dropdown-menu.dropdown-menu-right.dropdown-menu-arrow
+                        .header-user.text-center.mt-4.pb-4
+                            span.avatar.avatar-xxl.brround
+                                img.avatar.avatar-xxl.brround(src='/assets/images/users/female/33.png', alt='Profile-img')
+                            a.dropdown-item.text-center.font-weight-semibold.user.h3.mb-0(href='#') User
+                            small Web Designer
+                        a.dropdown-item(href='#')
+                            i.dropdown-icon.mdi.mdi-account-outline
+                            |  Spruko technologies
+                        a.dropdown-item(href='#')
+                            i.dropdown-icon.mdi.mdi-account-plus
+                            |  Add another Account
+                        .card-body.border-top
+                            .row
+                                .col-6.text-center
+                                    a(href='')
+                                        i.dropdown-icon.mdi.mdi-message-outline.fs-30.m-0.leading-tight
+                                    div Inbox
+                                .col-6.text-center
+                                    a(href='')
+                                        i.dropdown-icon.mdi.mdi-logout-variant.fs-30.m-0.leading-tight
+                                    div Sign out

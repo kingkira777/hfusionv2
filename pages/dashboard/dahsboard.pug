@@ -1,0 +1,21 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='#') Home
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a#daterange-btn.btn.btn-primary.text-white.mr-2
+                    span
+                        i.fa.fa-calendar
+                        |  Events Settings
+                    i.fa.fa-caret-down
+                a.btn.btn-secondary.text-white(href='#', data-toggle='tooltip', title='', data-placement='bottom', data-original-title='Rating')
+                    span
+                        i.fa.fa-star
+

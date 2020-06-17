@@ -1,0 +1,10 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='#') Home
+            li.breadcrumb-item.active(aria-current='page')=title
+
