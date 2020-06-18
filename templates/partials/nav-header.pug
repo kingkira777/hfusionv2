@@ -5,8 +5,11 @@
                 img.header-brand-img.main-logo(src='/assets/images/brand/hfusion.png', alt='Hogo logo')
                 img.header-brand-img.icon-logo(src='/assets/images/brand/hfusion.png', alt='Hogo logo')
             // logo
-            a#horizontal-navtoggle.animated-arrow.hor-toggle
-                span
+            if(openPatient)
+                a.app-sidebar__toggle(aria-label='Hide Sidebar', data-toggle='sidebar', href='#')
+            else
+                a#horizontal-navtoggle.animated-arrow.hor-toggle
+                    span
 
             .d-flex.order-lg-2.ml-auto.header-rightmenu
                 // full-screen

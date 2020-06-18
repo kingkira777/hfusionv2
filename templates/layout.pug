@@ -38,7 +38,12 @@ html(lang="en" dir="ltr")
         //- Datatables
         link(href='/assets/plugins/datatable/dataTables.bootstrap4.min.css', rel='stylesheet')
         link(href='/assets/plugins/datatable/responsivebootstrap4.min.css', rel='stylesheet')
-        
+        //- Date Picker
+        link(rel="stylesheet", href="/assets/plugins/date-picker/spectrum.css")
+        //- Time Picker
+        link(rel="stylesheet", href="/assets/plugins/time-picker/jquery.timepicker.css")
+        //- Select 2
+        link(rel="stylesheet", href="/assets/plugins/select2/select2.min.css")
         //- Font icons css
         link(href='/assets/plugins/iconfonts/plugin.css', rel='stylesheet')
         link(href='/assets/plugins/iconfonts/icons.css', rel='stylesheet')
@@ -84,6 +89,8 @@ html(lang="en" dir="ltr")
         //- Bootstrap.min js
         script(src='/assets/plugins/bootstrap/popper.min.js')
         script(src='/assets/plugins/bootstrap/js/bootstrap.min.js')
+        //- Axios Js
+        script(src="/plugins/axios.min.js")
         //- Jquery Sparkline js
         script(src='/assets/js/vendors/jquery.sparkline.min.js')
         //- Chart Circle js
@@ -120,8 +127,24 @@ html(lang="en" dir="ltr")
         script(src='/assets/plugins/datatable/jquery.dataTables.min.js')
         script(src='/assets/plugins/datatable/dataTables.bootstrap4.min.js')
         script(src='/assets/plugins/datatable/dataTables.responsive.min.js')
+
+        //- Selec2 js
+        script(src="/assets/plugins/select2/select2.full.min.js")
+
+        //- Time Picker js
+        script(src="/assets/plugins/time-picker/jquery.timepicker.js")
+        script(src="/assets/plugins/time-picker/toggles.min.js")
+
+        //- DatePicker js
+        script(src="/assets/plugins/date-picker/spectrum.js")
+        script(src="/assets/plugins/date-picker/jquery-ui.js")
+        script(src="/assets/plugins/input-mask/jquery.maskedinput.js")
         
+        //- Input Mask js
+        script(src="/plugins/jquery.mask.min.js")
+
         //- Custom js
         script(src='/assets/js/custom.js')
+        script(src="/js-page/input-control.js")
 
         block scripts

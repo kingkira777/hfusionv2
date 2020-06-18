@@ -10,6 +10,16 @@ router.get('/',(req,res,next)=>{
     });
 });
 
+//Add new patient
+router.get('/add-patient',(req,res,next)=>{
+    res.render('patients/add-patient',{
+        title : 'Add New Patients',
+        patientActive : 'active',
+        openPatient :false
+    });
+});
+
+
 
 
 

@@ -1,0 +1,35 @@
+.card
+    .card-header
+        h3.card-title Date of Service, Diagnosis & Allergies
+        .card-options
+            a.card-options-collapse(href='#', data-toggle='card-collapse')
+                i.fe.fe-chevron-up
+    .card-body
+        form(action="#", method="post")
+            .row 
+                .col-md-3 
+                    label(for="refdate").form-label Ref Date 
+                    input(type="text" name="refdate").form-control.datePicker
+                .col-md-3 
+                    label(for="soc").form-label SOC 
+                    input(type="text" name="soc").form-control.datePicker
+                .col-md-3 
+                    label(for="recert").form-label  Re-Cert
+                    input(type="text" name="recert").form-control.datePicker
+                .col-md-3 
+                    label(for="eoc").form-label EOC 
+                    input(type="text" name="eoc").form-control.datePicker
+            
+            .row 
+                .col-md-4 
+                    | Allergies: 
+                    button.btn.btn-primary.btn-sm
+                        i.fa.fa-plus
+                        | New Allergy
+                .col-md-4 
+                    label(for="discode").form-label Discharged Code 
+                    input(type="text" name="discode").form-control
+
+            hr 
+            .row 
+                

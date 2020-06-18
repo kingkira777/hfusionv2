@@ -1,0 +1,103 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='#') Patients
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/patients").btn.btn-danger.text-white.mr-2
+                    span
+                        i.fa.fa-list
+                        |  PATIENT LIST
+
+
+    .card.shadow
+        .card-header.bg-transparent.border-0
+            h3.card-title.mb-0 Add New Patient
+        .card-body  
+            form(action="#", method="post")
+                .row 
+                    .col-md-2
+                        label(for="mrno").form-label MR#
+                        input(type="text" name="mrno").form-control
+                    .col-md-3
+                        label(for="ssn").form-label SSN
+                        input#ssn(type="text" name="ssn").form-control.ssn
+
+                .row
+                    .col-md-4
+                        label(for="lastname").form-label Lastname
+                        input(type="text" name="lastname").form-control
+                    .col-md-4
+                        label(for="firstname").form-label Firstname
+                        input(type="text" name="firstname").form-control
+                    .col-md-4
+                        label(for="middlename").form-label Middlename
+                        input(type="text" name="middlename").form-control
+
+                
+                .row
+                    .col-md-4
+                        label(for="dob").form-label DOB
+                        input(type="text" name="dob" placeholder="MM/DD/YYYY").form-control.datePicker
+                    .col-md-4
+                        label(for="gender").form-label Gender 
+                        select.form-control(name="gender")
+                            option(value="") Select-->
+                            option(value="male") Male
+                            option(value="female") Female
+                    .col-md-4
+                        label(for="middlename").form-label Marital Status
+                        input(type="text" name="middlename").form-control
+
+                
+                .row
+                    .col-md-4
+                        label(for="phoneno").form-label Phone#
+                        input(type="text" name="phoneno").form-control.phone
+                    .col-md-4
+                        label(for="cellno").form-label Cell#
+                        input(type="text" name="cellno").form-control.cellno
+                    .col-md-4
+                        label(for="primlang").form-label Primary Language
+                        input(type="text" name="primlang").form-control
+
+
+                .row
+                    .col-md-3
+                        label(for="race").form-label Race
+                        input(type="text" name="race").form-control
+                    .col-md-3
+                        label(for="ethnicity").form-label Ethnicity
+                        input(type="text" name="ethnicity").form-control
+                    .col-md-3
+                        label(for="religion").form-label Religion
+                        input(type="text" name="religion").form-control
+                    .col-md-3
+                        label(for="denomination").form-label Denomination
+                        input(type="text" name="denomination").form-control
+
+                .row
+                    .col-md-4
+                        label(for="address").form-label Address
+                        input(type="text" name="address").form-control
+                    .col-md-3
+                        label(for="city").form-label City
+                        input(type="text" name="city").form-control
+                    .col-md-2
+                        label(for="state").form-label State
+                        input(type="text" name="state").form-control
+                    .col-md-2
+                        label(for="zipcode").form-label Zipcode
+                        input(type="text" name="zipcode").form-control.zipcode
+                hr 
+                .pull-right 
+                    button(type="submit").btn.btn-primary
+                        i.fa.fa-save 
+                        |               SAVE
+                    

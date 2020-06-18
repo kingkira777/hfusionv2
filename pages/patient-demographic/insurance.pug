@@ -1,0 +1,41 @@
+//- .card-collapsed
+.card
+    .card-header
+        h3.card-title Insurance
+        .card-options
+            a.card-options-collapse(href='#', data-toggle='card-collapse')
+                i.fe.fe-chevron-up
+    .card-body
+        span.alert-info 
+            | IMPORTANT - Per Authorization or Eligibility, only enter the Payer/s who is finanacially responsible. The claim will be submitted to this Payer/s only.
+
+        .row  
+            .col-md-6   
+                label(for="source").form-label Current Pay Source
+                select(name="source").form-control
+                    option(value="") Select-->
+                    option(value="Primary") Primary
+                    option(value="Secondary") Secondary
+                    option(value="Third Party") Third Party
+            .col-md-6 
+                label(for="effectivedate").form-label Effective Date   
+                input(type="text" name="effectivedate").form-control.datePicker
+
+        .row 
+            .col-md-6
+                label(for="payer").form-label  Payer/FN Resp 
+                select(name="payer").form-control 
+                    option(value="") Select-->
+            .col-md-6
+                label(for="cost").form-label Share of Cost 
+                input(type="text" name="cost").form-control 
+            .col-md-6 
+
+        .row 
+            .col-md-6 
+                label(for="policy") Policy#/HICN 
+                input(type="text" name="policy").form-control
+            .col-md-6 
+                label(for="mbino") MBI# 
+                    small (Medicare Beneficiary Identifier)
+                input(type="text" name="mbino").form-control
