@@ -7,9 +7,27 @@
             // logo
             if(openPatient)
                 a.app-sidebar__toggle(aria-label='Hide Sidebar', data-toggle='sidebar', href='#')
+
+                ul.nav.header-nav
+                    li.nav-item.dropdown.header-option.m-2
+                        a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#', role='button', aria-haspopup='true', aria-expanded='false')
+                            i.fe.fe-settings.mr-2
+                            | MENU
+                        .dropdown-menu.dropdown-menu-left
+                            a.dropdown-item(href='/') Dashboard
+                            a.dropdown-item(href='/patients') Patient List
+                            a.dropdown-item(href='/staff') Staff
+                            a.dropdown-item(href='/') Vendors
+                            a.dropdown-item(href='/') Insurance
+                            a.dropdown-item(href='/calendar') Calendar
+
             else
                 a#horizontal-navtoggle.animated-arrow.hor-toggle
                     span
+            
+            
+
+
 
             .d-flex.order-lg-2.ml-auto.header-rightmenu
                 // full-screen

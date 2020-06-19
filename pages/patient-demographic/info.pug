@@ -39,7 +39,7 @@ block content
                 .row 
                     .col-md-4 
                         label(for="dob") DOB
-                        input(type="text" name="dob").form-control 
+                        input(type="text" name="dob" placeholder="MM/DD/YYYY").form-control.datePicker 
                     .col-md-4 
                         label(for="gender") Gender 
                         input(type="text" name="gender").form-control 
@@ -99,6 +99,22 @@ block content
             //- Date of Service, Diagnosis & Allergies DSDA
             include DSDA   
                 
+        .col-md-12 
+            //- Place of Service
+            include placeofservice
+        .col-md-12 
+            //- Authorize Rep(AR) / Emergency Contanct(EC)
+            include AREC
+        .col-md-12 
+            //- Referral Source & Attending MD
+            include RSAM
+        .col-md-12 
+            //- Vendors
+            include vendors
+        .col-md-12 
+            //- Motuary Inforamtion
+            include mortuaryinfo
+    
 
 
 

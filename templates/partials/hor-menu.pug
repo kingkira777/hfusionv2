@@ -11,11 +11,22 @@
                         i.typcn.typcn-th-large-outline.hor-icon
                         |  PATIENTS 
                 li(aria-haspopup='true')
-                    a.sub-icon(href='/staff' class=staffActive)
+                    span.horizontalMenu-click
+                        i.horizontalMenu-arrow.fa.fa-angle-down
+                    a.sub-icon(href='#' class=staffActive)
                         i.typcn.typcn-th-large-outline.hor-icon
-                        |  STAFF
+                        |  HR
+                        i.fa.fa-angle-down.horizontal-icon
+                    ul.sub-menu
+                        li(aria-haspopup='true')
+                            a(href='/staff') Staff
+                        li(aria-haspopup='true')
+                            a(href='#') Vendors
+                        li(aria-haspopup='true')
+                            a(href='#') Insurance
+
                 li(aria-haspopup='true')
                     a.sub-icon(href='/calendar' class=calActive)
-                        i.typcn.typcn-th-large-outline.hor-icon
+                        i.typcn.typcn-calendar.hor-icon
                         |  CALENDAR
                         

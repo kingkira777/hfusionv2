@@ -12,39 +12,28 @@ html(lang="en" dir="ltr")
         link(rel='shortcut icon', type='image/x-icon', href='/assets/images/brand/favicon.ico')
         //- Title
         title=title
-        //- Bootstrap.min css
         link(rel='stylesheet', href='/assets/plugins/bootstrap/css/bootstrap.min.css')
-        //- Dashboard css
         link(href='/assets/css/style.css', rel='stylesheet')
-        //- Custom scroll bar css
         link(href='/assets/plugins/scroll-bar/jquery.mCustomScrollbar.css', rel='stylesheet')
-
-        //- Sidebar Menu css
-        link(href='/assets/plugins/toggle-sidebar/full-sidemenu.css', rel='stylesheet')
         
-        //- Horizontal-menu css
-        link(href='/assets/plugins/horizontal-menu/dropdown-effects/fade-down.css', rel='stylesheet')
-        link(href='/assets/plugins/horizontal-menu/horizontalmenu.css', rel='stylesheet')
-        //- Daterangepicker css
+        if(openPatient)
+            //- Sidebar Menu css
+            link(href='/assets/plugins/toggle-sidebar/full-sidemenu.css', rel='stylesheet')
+        else
+            //- Horizontal-menu css
+            link(href='/assets/plugins/horizontal-menu/dropdown-effects/fade-down.css', rel='stylesheet')
+            link(href='/assets/plugins/horizontal-menu/horizontalmenu.css', rel='stylesheet')
+
         link(href='/assets/plugins/bootstrap-daterangepicker/daterangepicker.css', rel='stylesheet')
-        //- Rightsidebar css
         link(href='/assets/plugins/sidebar/sidebar.css', rel='stylesheet')
-        //- Sidebar Accordions css
         link(href='/assets/plugins/accordion1/css/easy-responsive-tabs.css', rel='stylesheet')
-        //- Owl Theme css
         link(href='/assets/plugins/owl-carousel/owl.carousel.css', rel='stylesheet')
-        //- Morris  Charts css
         link(href='/assets/plugins/morris/morris.css', rel='stylesheet')
-        //- Datatables
         link(href='/assets/plugins/datatable/dataTables.bootstrap4.min.css', rel='stylesheet')
         link(href='/assets/plugins/datatable/responsivebootstrap4.min.css', rel='stylesheet')
-        //- Date Picker
         link(rel="stylesheet", href="/assets/plugins/date-picker/spectrum.css")
-        //- Time Picker
         link(rel="stylesheet", href="/assets/plugins/time-picker/jquery.timepicker.css")
-        //- Select 2
         link(rel="stylesheet", href="/assets/plugins/select2/select2.min.css")
-        //- Font icons css
         link(href='/assets/plugins/iconfonts/plugin.css', rel='stylesheet')
         link(href='/assets/plugins/iconfonts/icons.css', rel='stylesheet')
         link(href='/assets/fonts/fonts/font-awesome.min.css', rel='stylesheet')
@@ -84,63 +73,44 @@ html(lang="en" dir="ltr")
             i.fa.fa-angle-up
 
 
-
+        //- Main Js
         script(src='/assets/js/vendors/jquery-3.2.1.min.js')
-        //- Bootstrap.min js
         script(src='/assets/plugins/bootstrap/popper.min.js')
         script(src='/assets/plugins/bootstrap/js/bootstrap.min.js')
-        //- Axios Js
         script(src="/plugins/axios.min.js")
-        //- Jquery Sparkline js
+        
         script(src='/assets/js/vendors/jquery.sparkline.min.js')
-        //- Chart Circle js
         script(src='/assets/js/vendors/circle-progress.min.js')
-        //- Star Rating js
         script(src='/assets/plugins/rating/jquery.rating-stars.js')
-        //- Moment js
         script(src='/assets/plugins/moment/moment.min.js')
-        //- Daterangepicker js
         script(src='/assets/plugins/bootstrap-daterangepicker/daterangepicker.js')
-        //- Sidebar Menu js
-        script(src="/assets/plugins/toggle-sidebar/sidemenu.js")
-        //- Horizontal-menu js
-        script(src='/assets/plugins/horizontal-menu/horizontalmenu.js')
-        //- Sidebar Accordions js
+        if(openPatient)
+            //- Sidebar Menu js
+            script(src="/assets/plugins/toggle-sidebar/sidemenu.js")
+        else
+            //- Horizontal-menu js
+            script(src='/assets/plugins/horizontal-menu/horizontalmenu.js')
+        
         script(src='/assets/plugins/accordion1/js/easyResponsiveTabs.js')
-        //- Custom scroll bar js
         script(src='/assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')
-        //- Owl Carousel js
         script(src='/assets/plugins/owl-carousel/owl.carousel.js')
         script(src='/assets/plugins/owl-carousel/owl-main.js')
-        //- Rightsidebar js
         script(src='/assets/plugins/sidebar/sidebar.js')
-        //- Charts js
         script(src='/assets/plugins/chart/chart.bundle.js')
         script(src='/assets/plugins/chart/utils.js')
-        //- Time Counter js
         script(src='/assets/plugins/counters/jquery.missofis-countdown.js')
         script(src='/assets/plugins/counters/counter.js')
-        //- Morris  Charts js
         script(src='/assets/plugins/morris/raphael-min.js')
         script(src='/assets/plugins/morris/morris.js')
-        //- Datatable js
         script(src='/assets/plugins/datatable/jquery.dataTables.min.js')
         script(src='/assets/plugins/datatable/dataTables.bootstrap4.min.js')
         script(src='/assets/plugins/datatable/dataTables.responsive.min.js')
-
-        //- Selec2 js
         script(src="/assets/plugins/select2/select2.full.min.js")
-
-        //- Time Picker js
         script(src="/assets/plugins/time-picker/jquery.timepicker.js")
         script(src="/assets/plugins/time-picker/toggles.min.js")
-
-        //- DatePicker js
         script(src="/assets/plugins/date-picker/spectrum.js")
         script(src="/assets/plugins/date-picker/jquery-ui.js")
         script(src="/assets/plugins/input-mask/jquery.maskedinput.js")
-        
-        //- Input Mask js
         script(src="/plugins/jquery.mask.min.js")
 
         //- Custom js
