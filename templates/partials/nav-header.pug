@@ -17,15 +17,21 @@
                             a.dropdown-item(href='/') Dashboard
                             a.dropdown-item(href='/patients') Patient List
                             a.dropdown-item(href='/staff') Staff
-                            a.dropdown-item(href='/') Vendors
-                            a.dropdown-item(href='/') Insurance
+                            a.dropdown-item(href='/vendors') Vendors
+                            a.dropdown-item(href='/insurance') Insurance
                             a.dropdown-item(href='/calendar') Calendar
 
             else
                 a#horizontal-navtoggle.animated-arrow.hor-toggle
                     span
             
-            
+                .header-form
+                    form(method="post" action="#").form-inline
+                        .search-element.mr-3
+                            input.form-control(type='search', placeholder='Search', aria-label='Search')
+                            span.Search-icon
+                                i.fa.fa-search
+
 
 
 

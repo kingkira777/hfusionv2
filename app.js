@@ -8,6 +8,8 @@ const logger = require('morgan');
 const dashboardRouter = require('./pages/dashboard/router');
 const patientRouter = require('./pages/patients/router');
 const staffRouter = require('./pages/staff/router');
+const vendorRouter = require('./pages/vendors/router');
+const insuranceRouter = require('./pages/insurance/router');
 const calendarRouter = require('./pages/calendar/router');
 
 //PATIENTS MENU (eg. nursing, spiritual, visitnotes, consent etc.)
@@ -37,6 +39,8 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/', dashboardRouter);
 app.use('/patients', patientRouter);
 app.use('/staff', staffRouter);
+app.use('/vendors',vendorRouter);
+app.use('/insurance',insuranceRouter);
 app.use('/calendar',calendarRouter);
 
 // WHEN PATIENT IS OPEN
