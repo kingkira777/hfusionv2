@@ -37,11 +37,14 @@ html(lang="en" dir="ltr")
         link(href='/assets/plugins/iconfonts/plugin.css', rel='stylesheet')
         link(href='/assets/plugins/iconfonts/icons.css', rel='stylesheet')
         link(href='/assets/fonts/fonts/font-awesome.min.css', rel='stylesheet')
+        link(rel="stylesheet", href="/assets/plugins/sweet-alert/jquery.sweet-modal.min.css")
+        link(rel="stylesheet", href="/assets/plugins/sweet-alert/sweetalert.css")
+        link(rel="stylesheet", href="/assets/css/app.css")
 
     body.app.sidebar-mini.rtl
 
-        #global-loader
-            img(src="/assets/images/icons/loader.svg", alt="loader")
+        //- #global-loader
+        //-     img(src="/assets/images/icons/loader.svg", alt="loader")
         
         .page 
             .page-main 
@@ -112,9 +115,12 @@ html(lang="en" dir="ltr")
         script(src="/assets/plugins/date-picker/jquery-ui.js")
         script(src="/assets/plugins/input-mask/jquery.maskedinput.js")
         script(src="/plugins/jquery.mask.min.js")
+        script(src="/assets/plugins/sweet-alert/jquery.sweet-modal.min.js")
+        script(src="/assets/plugins/sweet-alert/sweetalert.min.js")
 
         //- Custom js
         script(src='/assets/js/custom.js')
+        script(src="/js-page/app.js")
         script(src="/js-page/input-control.js")
 
         block scripts

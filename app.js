@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const moment = require('moment');
 
 //PAGES REQUIRES
 const dashboardRouter = require('./pages/dashboard/router');
@@ -12,14 +13,13 @@ const vendorRouter = require('./pages/vendors/router');
 const insuranceRouter = require('./pages/insurance/router');
 const calendarRouter = require('./pages/calendar/router');
 
+
 //PATIENTS MENU (eg. nursing, spiritual, visitnotes, consent etc.)
 const patientDemoRouter = require('./pages/patient-demographic/router');
 
 
-
-
-
 const app = express();
+app.locals.moment = moment;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'pages'));
@@ -34,7 +34,6 @@ app.use(express.static(path.join(__dirname, 'pages')));
 app.use(express.static(path.join(__dirname, 'assets')));
 
 
-
 //ROUTERS 
 app.use('/', dashboardRouter);
 app.use('/patients', patientRouter);
@@ -44,7 +43,7 @@ app.use('/insurance',insuranceRouter);
 app.use('/calendar',calendarRouter);
 
 // WHEN PATIENT IS OPEN
-app.use('/(:no)',patientDemoRouter);
+app.use('/patient',patientDemoRouter);
 
 
 

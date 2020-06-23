@@ -1,0 +1,51 @@
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+        tbody
+            tr
+                td.bg-danger.text-white
+                    h4 PROFESSIONAL INFORMATION
+
+
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+
+        tbody
+            tr
+                td
+                    .row
+                        .col-md-4
+                            .form-group
+                                label.form-label JOB TITLE
+                                input.form-control(type='text' name='jobtitle' value=(data[0]? data[0].jobtitle : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label DISCIPLINE 
+                                select(name="discipline").form-control
+                                    option(value=(data[0]? data[0].discipline : ''))= (data[0]? discipline[data[0].discipline] : 'Select-->')
+                                    each val, key in discipline
+                                        option(value=key)=val
+                        .col-md-4
+                            .form-group
+                                label.form-label PROFESSIONAL LICENSE#
+                                input.form-control(type='text' name='proflicense' value=(data[0]? data[0].prof_license : ''))
+                    
+                    .row 
+                        .col-md-4 
+                            label.form-label EMPLOYMENT DATE FROM (From & To)
+                            .row 
+                                .col-md-6 
+                                    .form-group
+                                        input.form-control.datePicker(type='text' name='dateFrom' placeholder="MM/DD/YYYY"  value=(data[0]? moment(data[0].datefrom).format('MM/DD/YYYY') : ''))
+                                .col-md-6 
+                                    .form-group
+                                        input.form-control.datePicker(type='text' name='dateTo' placeholder="MM/DD/YYYY" value=(data[0]? moment(data[0].dateto).format('MM/DD/YYYY') : ''))
+                        .col-md-4 
+                            label.form-label NPI (for MD only)
+                            input(type="text" name="npi" value=(data[0]? data[0].npi : '')).form-control
+                        .col-md-4 
+                            label.form-label VALID TILL
+                            input(type="text" name="valid" placeholder="MM/DD/YYYY" value=(data[0]? moment(data[0].validtill).format('MM/DD/YYYY') : '')).form-control.datePicker
+
+
+
+

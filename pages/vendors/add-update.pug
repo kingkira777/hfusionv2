@@ -1,0 +1,155 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='/') Home
+            li.breadcrumb-item.active(aria-current='page') HR
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/vendors").btn.btn-danger.text-white.mr-2
+                    span
+                        i.fa.fa-list
+                        |  VENDOR LIST
+
+
+    .card.shadow
+        .card-header.bg-transparent.border-0
+            h3.card-title.mb-0 Add/Update Vendor 
+
+        .card-body
+
+            .table-responsive
+                table.table.table-bordered.text-nowrap.mb-0
+
+                    tbody
+                        tr
+                            td.bg-blue-dark.text-white
+                                h4 VENDOR INFORMATION FORM
+
+
+            br
+
+            .table-responsive
+                form#vendor-form(action="/vendors/save-update/"+vendor_id, method="post")
+                    table.table.table-bordered.text-nowrap.mb-0
+                        tbody
+                            tr
+                                td
+                                    .row
+                                        .col-md-2
+                                            .form-group
+                                                label.form-label CONTROL ID
+                                                input.form-control.upperCase(type='text' name='no' value=vendor_id readonly)
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label TYPE
+                                                select(name="type" requried).form-control 
+                                                    option(value=(data[0]? data[0].type : ''))=(data[0])? types[data[0].type] : 'Select-->'
+                                                    each val, key in types
+                                                        option(value=key)=val
+
+                                        .col-md-7
+                                            .form-group
+                                                label.form-label COMPANY NAME
+                                                input.form-control(type='text' name='name' value=(data[0]? data[0].name : '') requried)
+
+                                    .row
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label CELL PHONE NUMBER
+                                                input.form-control.cellno(type='text' name='cellno' value=(data[0]? data[0].cellno : ''))
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label TELEPHONE NUMBER
+                                                input.form-control.phone(type='text' name='phone' value=(data[0]? data[0].phone : '') )
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label FAX NUMBER
+                                                input.form-control(type='tel' name='fax' value=(data[0]? data[0].fax : '') )
+                                    
+
+                                    .row
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label STREET / UNIT NUMBER
+                                                input.form-control(type='text' name='address' value=(data[0]? data[0].address : '') )
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label CITY
+                                                input.form-control(type='text' name='city' value=(data[0]? data[0].city : ''))
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label STATE
+                                                input.form-control(type='text' name='state' value=(data[0]? data[0].state : ''))
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label ZIP
+                                                input.form-control.zipcode(type='text' name='zipcode' value=(data[0]? data[0].zipcode : ''))
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label EMAIL ADDRESS
+                                                input.form-control(type='text' name='email' value=(data[0]? data[0].email : '') )
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label CONTACT PERSON
+                                                input.form-control(type='text' name='cperson' value=(data[0]? data[0].cperson : '') )
+                                        
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label NPI NUMBER
+                                                input.form-control(type='text' name='npi' value=(data[0]? data[0].npi : '') )
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label NPI EXPIRATION DATE
+                                                .input-group
+                                                    .input-group-prepend
+                                                        .input-group-text
+                                                            i.fa.fa-calendar.tx-16.lh-0.op-6
+                                                    input.form-control.datePicker(placeholder='MM/DD/YYYY' type='text' name='npi_exp' value=(data[0]? data[0].npi_exp : '') )
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label BUS LICENSED NUMBER
+                                                input.form-control(type='text' name='bus' value=(data[0]? data[0].bus : '') )
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label BUS LICENSED EXPIRATION DATE
+                                                .input-group
+                                                    .input-group-prepend
+                                                        .input-group-text
+                                                            i.fa.fa-calendar.tx-16.lh-0.op-6
+                                                    input.form-control.datePicker(placeholder='MM/DD /YYYY' type='text' name='bus_exp' value=(data[0]? data[0].bus_exp : '') )
+                                    .row
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label INSURANCE
+                                                input.form-control(type='text' name='insurace' value=(data[0]? data[0].insurance : '') )
+                                        .col-md-6
+                                            .form-group
+                                                label.form-label INSURANCE EXPIRATION DATE
+                                                .input-group
+                                                    .input-group-prepend
+                                                        .input-group-text
+                                                            i.fa.fa-calendar.tx-16.lh-0.op-6
+                                                    input.form-control.datePicker(placeholder='MM/DD/YYYY' type='text' name='insurace_exp' value=(data[0]? data[0].insurance_exp : '') )
+                                tr
+                                    td 
+                                        a.btn.btn-danger(href="/vendors")
+                                            i.fa.fa-times 
+                                                | CANCEL
+                                        |   
+                                        button.btn.btn-primary(type="submit").pull-right
+                                            i.fa.fa-save 
+                                                | SAVE
+
+
+
+block scripts 
+    script(src="/js-page/vendors.js")

@@ -1,0 +1,103 @@
+extends ../../templates/layout
+
+block content
+
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='/') Home
+            li.breadcrumb-item.active(aria-current='page') HR
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/insurance").btn.btn-danger.text-white.mr-2
+                    span
+                        i.fa.fa-list
+                        | Insurance List 
+
+
+
+    .card
+        .card-body
+            .table-responsive
+                table.table.table-bordered.text-nowrap.mb-0
+                    tbody
+                        tr
+                            td.btn-gray-dark.text-white
+                                h4 NSURANCE INFORMATION FORM
+
+            br
+            .table-responsive
+                form#insurance-form(action="/insurance/save-update/"+insuranceno  method="post")
+                    table.table.table-bordered.text-nowrap.mb-0
+
+                        tbody
+                            tr
+                                td
+                                    .row
+                                        .col-md-2
+                                            .form-group
+                                                label.form-label CONTROL ID
+                                                input.form-control.upperCase(type='text' name='no' value=(insuranceno)? insuranceno : '' readonly)
+                                    .row
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label INSURANCE NAME
+                                                input.form-control(type='text' name='name' value=(data[0])? data[0].name : '' required)
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label EMAIL ADDRESS
+                                                input.form-control(type='text' name='email' value=(data[0])? data[0].email : '' )
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label SOURCE TYPE
+                                                select.custom-select(name="source" required)
+                                                    option(value=(data[0])? data[0].source_type : '')= (data[0])? source_type[data[0].source_type] : 'Select-->' 
+                                                    each val, key in source_type 
+                                                        option(value=key)=val
+                                                    
+                                    .row
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label ADDRESS / STREET / UNIT NUMBER
+                                                input.form-control(type='text' name='address' value=(data[0])? data[0].address : '' )
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label CITY
+                                                input.form-control(type='text' name='city' value=(data[0])? data[0].city : '' )
+                                        .col-md-3
+                                            .form-group
+                                                label.form-label STATE
+                                                input.form-control(type='text' name='state' value=(data[0])? data[0].state : '' )
+                                        .col-md-2
+                                            .form-group
+                                                label.form-label ZIP CODE
+                                                input.form-control.zipcode(type='text' name='zipcode' value=(data[0])? data[0].zipcode : '' )
+                                    .row
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label TELEPHONE NUMBER
+                                                input.form-control.phone(type='text' name='phoneno' value=(data[0])? data[0].telehphone : '' )
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label ALT. PHONE NUMBER 
+                                                input.form-control.phone(type='text' name='phoneno1' value=(data[0])? data[0].alt_telephone : '' )
+                                        .col-md-4
+                                            .form-group
+                                                label.form-label FAX NUMBER
+                                                input.form-control(type='text' name='fax' value=(data[0])? data[0].fax : '')
+                                        
+                            tr 
+                                td 
+                                    a.btn.btn-danger(href="/insurance")
+                                        i.fa.fa-times 
+                                            | CANCEL
+                                    |   
+                                    button.btn.btn-primary(type="submit").pull-right
+                                        i.fa.fa-save 
+                                            | SAVE
+
+block scripts 
+    script(src="/js-page/insurance.js")

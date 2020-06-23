@@ -1,0 +1,76 @@
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+
+        tbody
+            tr
+                td.bg-danger.text-white
+                    h4 PERSONNAL INFORMATION
+
+
+br
+
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+
+        tbody
+            tr
+                td
+                    .row
+                        .col-md-5
+                            .form-group
+                                label.form-label FIRST NAME
+                                input.form-control(type='text' name='firstname' value=(data[0]? data[0].firstname : '') required)
+                        .col-md-5
+                            .form-group
+                                label.form-label LAST NAME
+                                input.form-control(type='text' name='lastname' value=(data[0]? data[0].lastname : '') required)
+                        .col-md-2
+                            .form-group
+                                label.form-label DATE OF BIRTH
+                                input.form-control.datePicker(type='text' name='dob' placeholder="MM/DD/YYYY" value=(data[0]? moment(data[0].dob).format('MM/DD/YYYY') : ''))
+
+                    .row 
+                        .col-md-4
+                            .form-group
+                                label.form-label SSN
+                                input.form-control(type='text' name='ssn' value=(data[0]? data[0].ssn : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label DRIVER LIC#
+                                input.form-control(type='text' name='driverlic' value=(data[0]? data[0].driver_license : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label CELL. PROVIDER
+                                input.form-control(type='text' name='cellprovider' value=(data[0]? data[0].cell_provider : '')) 
+                    
+                    .row 
+                        .col-md-4
+                            .form-group
+                                label.form-label PHONE#
+                                input.form-control.phone(type='text' name='phone' value=(data[0]? data[0].phone : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label CELLPHONE#
+                                input.form-control.cellno(type='text' name='cellno' value=(data[0]? data[0].cellphone : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label FAX
+                                input.form-control(type='text' name='fax' value=(data[0]? data[0].fax : '')) 
+                    
+                    .row 
+                        .col-md-4
+                            .form-group
+                                label.form-label ADDRESS
+                                input.form-control(type='text' name='address' value=(data[0]? data[0].address : ''))
+                        .col-md-4
+                            .form-group
+                                label.form-label CITY
+                                input.form-control(type='text' name='city' value=(data[0]? data[0].city : ''))
+                        .col-md-2
+                            .form-group
+                                label.form-label STATE
+                                input.form-control(type='text' name='state' value=(data[0]? data[0].state : '')) 
+                        .col-md-2
+                            .form-group
+                                label.form-label ZIPCODE
+                                input.form-control.zipcode(type='text' name='zipcode' value=(data[0]? data[0].zipcode : '')) 

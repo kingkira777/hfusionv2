@@ -11,7 +11,7 @@ block content
         // End breadcrumb
         .ml-auto
             .input-group
-                a(href="/patients/add-patient").btn.btn-primary.text-white.mr-2
+                a(href="/staff/add-update").btn.btn-primary.text-white.mr-2
                     span
                         i.fa.fa-plus
                         |  ADD NEW STAFF
@@ -20,40 +20,12 @@ block content
     .card.shadow
         .card-header.bg-transparent.border-0
             h3.card-title.mb-0 Staff List
-        div
-            .grid-margin
-                div
-                    .table-responsive
-                        table.table.card-table.table-vcenter.text-nowrap.align-items-center
-                            thead.thead-light
-                                tr
-                                    th Firstname
-                                    th Lastname
-                                    th DOB
-                                    th Discipline
-                                    th Cell#
-                                    th Phone#
-                                    th Email 
-                                    th Address
-                                    th Hire Date
-                                    th Termination Date  
-                                    th Options
-                            tbody
-                                tr
-                                    td 
-                                        | Ador
-                                    td
-                                        | Bustamante
+        .card-body 
+            .table-responsive
+                table#table-staff.table.table-hover.table-striped(style="width:100%")
 
-                                    td
-                                        | MD
-                                    td (323) 254-2811
-                                    td.text-nowrap  
-                                        | 
-                                    td.text-nowrap  
-                                        | buste827@aol.com 
-                                    td 5417 York Blvd.
-                                    td 2020-01-01
-                                    td 2016-01-01
-                                    td 2019-12-11
+                    
+                          
                                 
+block scripts 
+    script(src="/js-page/staff.js")

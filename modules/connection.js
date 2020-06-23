@@ -5,9 +5,9 @@ let conServer = () => {
     var _con;
     _con = mysql.createPool({
         host: 'localhost',
-        user: '',
-        password : '',
-        database : ''
+        user: 'hfusion_master',
+        password : '*masater777!',
+        database : 'hfusion_master'
     });
     return _con;
 }
@@ -19,10 +19,10 @@ let conLocal = () => {
         host: 'localhost',
         user: 'root',
         password : 'admin',
-        database : 'master'
+        database : 'hfusion'
     });
     return _con;
 }
 
 
-module.exports = conLocal;
+module.exports = conServer();

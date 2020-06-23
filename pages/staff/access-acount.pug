@@ -1,0 +1,69 @@
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+        tbody
+            tr
+                td.bg-danger.text-white
+                    h4 ACCESS ACCOUNT
+
+br 
+.table-responsive
+    table.table.table-bordered.text-nowrap.mb-0
+
+        tbody
+            tr
+                td
+
+
+                    .row
+                        .col-md-4
+                            .form-group
+                                label.form-label EMAIL ADDRESS
+                                input.form-control(type='text' name='email' value='' )
+                        .col-md-4
+                            .form-group
+                                label.form-label CONFIRM EMAIL ADDRESS
+                                input.form-control(type='text' name='cemail' value='' )
+                        .col-md-4
+                            .form-group
+                                label.form-label ACCESS LEVEL
+                                select.form-control(name="accesslevel")
+                                    option(value='') CHOOSE TYPE
+                                    option(value='Male' name='ADMINISTRATOR') ADMINISTRATOR
+                                    option(value='Male' name='ADMINISTRATOR') ADMIN ASSISTANT
+                                    option(value='Male' name='ADMINISTRATOR') BC
+
+                    .row
+                        .col-md-4
+                            .form-group
+                                label.form-label USERNAME
+                                input.form-control(type='text' name='empusername' value='' )
+                        .col-md-4
+                            .form-group
+                                label.form-label PASSWORD
+                                input.form-control(type='text' name='emppassword1' value='' )
+                        .col-md-4
+                            .form-group
+                                label.form-label REPEAT PASSWORD
+                                input.form-control(type='text' name='emppassword2' value='' )
+
+                    .row
+                        .col-md-4
+                            .form-group
+                                label.form-label STAFF TYPE
+                                select.custom-select
+                                    option(value='') CHOOSE TYPE
+                                    option(value='Male') A - ADMINISTRATOR
+                                    option(value='Female') C - CLINICAL
+                                    option(value='Gay') X - CONTRACTED STAFF
+                                    option(value='Gay') Y - REFERRAL SOURCE
+                        .col-md-4
+                            .form-group
+                                label.form-label STAFF STATUS
+                                select.custom-select
+                                    option(value='') CHOOSE STATUS
+                                    option(value='active') ACTIVE
+                                    option(value='inactive') INACTIVE
+                        .col-md-4
+                            .form-group
+                                label.form-label LOGIN INITIALS
+                                input.form-control(type='text' name='logininitials' value='' disabled)

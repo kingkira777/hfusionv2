@@ -1,0 +1,48 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='/') Home
+            li.breadcrumb-item.active(aria-current='page') HR
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/staff").btn.btn-danger.text-white.mr-2
+                    span
+                        i.fa.fa-list
+                        |  STAFF LIST
+
+
+    .card.shadow
+        .card-header.bg-transparent.border-0
+            h3.card-title.mb-0 Add/Update Staff
+        .card-body 
+            form#staff-form(action="/staff/save-update/"+staffid, method="post")
+                include ./personal-info
+
+                br
+
+                include ./professional-info
+
+                br 
+
+                //- include ./access-acount
+
+                tr
+                    td 
+                        a.btn.btn-danger(href="/staff")
+                            i.fa.fa-times 
+                                | CANCEL
+                        |   
+                        button.btn.btn-primary(type="submit").pull-right
+                            i.fa.fa-save 
+                                | SAVE
+
+
+
+block scripts 
+    script(src="/js-page/staff.js")

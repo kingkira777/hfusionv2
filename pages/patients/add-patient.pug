@@ -71,10 +71,16 @@ block content
                 .row
                     .col-md-3
                         label(for="race").form-label Race
-                        input(type="text" name="race").form-control
+                        select(name="race").form-control
+                            option(value="") Select-->
+                            each val,key in race
+                                option(value=key)=val
                     .col-md-3
                         label(for="ethnicity").form-label Ethnicity
-                        input(type="text" name="ethnicity").form-control
+                        select(name="ethnicity").form-control
+                            option(value="") Select-->
+                            each val,key in ethnicity
+                                option(value=key)=val
                     .col-md-3
                         label(for="religion").form-label Religion
                         input(type="text" name="religion").form-control
@@ -101,3 +107,7 @@ block content
                         i.fa.fa-save 
                         |               SAVE
                     
+
+
+block scripts 
+    script(src="/js-page/patient.js")
