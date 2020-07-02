@@ -1,0 +1,33 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='/') Home
+            li.breadcrumb-item.active(aria-current='page') HR
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/users/add-update").btn.btn-primary.text-white.mr-2
+                    span
+                        i.fa.fa-plus
+                        |  ADD NEW USER
+    .card
+        .card-header  
+            h4.card-title USER LIST
+        .card-body
+            .table-responsive 
+                table.table.table-hover.table-striped   
+                    tr
+                        th NAME
+                        th USERNAME 
+                        th EMAIL 
+                        th DATE 
+                        th ACTION 
+
+
+block scripts 
+    script(src="/js-page/users.js")

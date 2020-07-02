@@ -12,6 +12,7 @@ const staffRouter = require('./pages/staff/router');
 const vendorRouter = require('./pages/vendors/router');
 const insuranceRouter = require('./pages/insurance/router');
 const calendarRouter = require('./pages/calendar/router');
+const userRouter =  require('./pages/users/router');
 
 
 //PATIENTS MENU (eg. nursing, spiritual, visitnotes, consent etc.)
@@ -41,6 +42,7 @@ app.use('/staff', staffRouter);
 app.use('/vendors',vendorRouter);
 app.use('/insurance',insuranceRouter);
 app.use('/calendar',calendarRouter);
+app.use('/users',userRouter);
 
 // WHEN PATIENT IS OPEN
 app.use('/patient',patientDemoRouter);

@@ -19,42 +19,12 @@ block content
     .card.shadow
         .card-header.bg-transparent.border-0
             h3.card-title.mb-0 Patient List
-        div
-            .grid-margin
-                div
-                    .table-responsive
-                        table.table.card-table.table-vcenter.text-nowrap.align-items-center
-                            thead.thead-light
-                                tr
-                                    th MR#
-                                    th Name
-                                    th DOB
-                                    th Primary Dx
-                                    th MD
-                                    th Referring MD 
-                                    th SOC 
-                                    th EOC
-                                    th Discharge Rx 
-                                    th Care Days
-                            tbody
-                                tr
-                                    td 
-                                        a(href="/patient/0000019-009A")
-                                            | 0000019-009A
-                                    td
-                                        .avatar-group
-                                            a.avatar.avatar-sm(data-toggle='tooltip', href='#', data-original-title='', title='')
-                                                img.rounded-circle(alt='Image placeholder', src='/assets/images/users/male/19.jpg')
-                                            span.text-sm.font-weight-600
-                                                |           Patient Name
-
-                                    td
-                                        | 10/24/1995
-                                    td please check pricing Info 
-                                    td.text-nowrap  
-                                        | John Doe
-                                    td.text-nowrap  
-                                        | John Doe
+        .card-body
+            div
+                .grid-margin
+                    div
+                        .table-responsive
+                            table#patient-tableList.table.table-hover.table-striped(style="width:100%")
                                 
 
 block scripts 

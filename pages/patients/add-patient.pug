@@ -20,11 +20,11 @@ block content
         .card-header.bg-transparent.border-0
             h3.card-title.mb-0 Add New Patient
         .card-body  
-            form(action="#", method="post")
+            form#patient-form(action="/patients/save-patient", method="post")
                 .row 
                     .col-md-2
                         label(for="mrno").form-label MR#
-                        input(type="text" name="mrno").form-control
+                        input(type="text" name="mrno" required).form-control
                     .col-md-3
                         label(for="ssn").form-label SSN
                         input#ssn(type="text" name="ssn").form-control.ssn
@@ -32,10 +32,10 @@ block content
                 .row
                     .col-md-4
                         label(for="lastname").form-label Lastname
-                        input(type="text" name="lastname").form-control
+                        input(type="text" name="lastname" required).form-control
                     .col-md-4
                         label(for="firstname").form-label Firstname
-                        input(type="text" name="firstname").form-control
+                        input(type="text" name="firstname" required).form-control
                     .col-md-4
                         label(for="middlename").form-label Middlename
                         input(type="text" name="middlename").form-control
@@ -44,16 +44,16 @@ block content
                 .row
                     .col-md-4
                         label(for="dob").form-label DOB
-                        input(type="text" name="dob" placeholder="MM/DD/YYYY").form-control.datePicker
+                        input(type="text" name="dob" placeholder="MM/DD/YYYY" required).form-control.datePicker
                     .col-md-4
                         label(for="gender").form-label Gender 
-                        select.form-control(name="gender")
+                        select.form-control(name="gender" required)
                             option(value="") Select-->
                             option(value="male") Male
                             option(value="female") Female
                     .col-md-4
-                        label(for="middlename").form-label Marital Status
-                        input(type="text" name="middlename").form-control
+                        label(for="mstatus").form-label Marital Status
+                        input(type="text" name="mstatus").form-control
 
                 
                 .row

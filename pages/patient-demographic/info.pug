@@ -16,78 +16,88 @@ block content
 
     .card 
         .card-body
-            form(action="#", method="post")  
+            form#update-patient-form(action="/patient/"+patientid+"/update-patient-info", method="post")  
                 .row 
                     .col-md-2 
                         label(for="mrno") MR# 
-                        input(type="text" name="mrno").form-control 
+                        input(type="text" name="mrno" value=(data[0])? data[0].mrno :'' ).form-control 
                     .col-md-3
-                        label(for="mrno") SSN 
-                        input(type="text" name="mrno").form-control.ssn 
+                        label(for="ssn") SSN 
+                        input(type="text" name="ssn" value=(data[0])? data[0].ssn :'' ).form-control.ssn 
 
                 .row 
                     .col-md-4 
                         label(for="lastname") Lastname
-                        input(type="text" name="lastname").form-control 
+                        input(type="text" name="lastname" value=(data[0])? data[0].lastname :'' ).form-control 
                     .col-md-4 
                         label(for="firstname") Firstname 
-                        input(type="text" name="firstname").form-control 
+                        input(type="text" name="firstname" value=(data[0])? data[0].firstname :'' ).form-control 
                     .col-md-4 
                         label(for="middlename") Middlename 
-                        input(type="text" name="middlename").form-control 
+                        input(type="text" name="middlename" value=(data[0])? data[0].middlename :'' ).form-control 
 
                 .row 
                     .col-md-4 
                         label(for="dob") DOB
-                        input(type="text" name="dob" placeholder="MM/DD/YYYY").form-control.datePicker 
+                        input(type="text" name="dob" placeholder="MM/DD/YYYY" value=(data[0])? moment(data[0].dob).format('MM/DD/YYYY') :'' ).form-control.datePicker 
                     .col-md-4 
                         label(for="gender") Gender 
-                        input(type="text" name="gender").form-control 
+                        input(type="text" name="gender" value=(data[0])? data[0].gender :'' ).form-control 
                     .col-md-4 
                         label(for="mstatus") Marital Status 
-                        input(type="text" name="mstatus").form-control 
+                        input(type="text" name="mstatus" value=(data[0])? data[0].marital_status :'' ).form-control 
 
                 .row
                     .col-md-4 
-                        label(for="mrno") Phone#
-                        input(type="text" name="mrno").form-control.phone
+                        label(for="phoneno") Phone#
+                        input(type="text" name="phoneno" value=(data[0])? data[0].phoneno :'' ).form-control.phone
                     .col-md-4 
-                        label(for="mrno") Cell#
-                        input(type="text" name="mrno").form-control.cellno
+                        label(for="cellno") Cell#
+                        input(type="text" name="cellno" value=(data[0])? data[0].cellno :'' ).form-control.cellno
                     .col-md-4 
-                        label(for="mrno") Primary Language
-                        input(type="text" name="mrno").form-control 
+                        label(for="primlang") Primary Language
+                        input(type="text" name="primlang" value=(data[0])? data[0].primary_lang :'' ).form-control 
 
 
                 .row
                     .col-md-3 
                         label(for="race") Race 
-                        input(type="text" name="race").form-control 
+                        select(name="race").form-control
+                            option(value=(data[0])? data[0].race :'' )=race[data[0].race]
+                            each val, key in race
+                                option(value=key)= val
                     .col-md-3 
                         label(for="ethnicity") Ethnicity
-                        input(type="text" name="ethnicity").form-control 
+                        select(name="ethnicity").form-control 
+                            option(value=(data[0])? data[0].ethnicity :'')=ethnicity[data[0].ethnicity]
+                            each val, key in ethnicity
+                                option(value=key)=val
                     .col-md-3 
                         label(for="religion") Religion
-                        input(type="text" name="religion").form-control
+                        input(type="text" name="religion" value=(data[0])? data[0].religion :'' ).form-control
                     .col-md-3 
                         label(for="denomination") Denomination
-                        input(type="text" name="denomination").form-control  
+                        input(type="text" name="denomination" value=(data[0])? data[0].denomination :'' ).form-control  
 
 
                 .row 
                     .col-md-4 
                         label(for="address") Address 
-                        input(type="text" name="address").form-control 
+                        input(type="text" name="address" value=(data[0])? data[0].address :'' ).form-control 
                     .col-md-3 
                         label(for="city") City
-                        input(type="text" name="city").form-control 
+                        input(type="text" name="city" value=(data[0])? data[0].city :'' ).form-control 
                     .col-md-2 
                         label(for="state") State 
-                        input(type="text" name="state").form-control 
+                        input(type="text" name="state" value=(data[0])? data[0].state :'' ).form-control 
                     .col-md-2 
                         label(for="zipcode") Zipcode
-                        input(type="text" name="zipcode").form-control.zipcode
-
+                        input(type="text" name="zipcode" value=(data[0])? data[0].zipcode :'' ).form-control.zipcode
+                hr 
+                .pull-right 
+                    button.btn.btn-primary(type="submit")
+                        i.fa.fa-save 
+                        |   UPDATE
 
     .row 
     
@@ -119,3 +129,5 @@ block content
 
 
 
+block scripts 
+    script(src="/js-page/patient.js")

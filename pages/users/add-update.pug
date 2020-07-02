@@ -1,0 +1,89 @@
+extends ../../templates/layout
+
+block content
+    .page-header
+        ol.breadcrumb
+            // breadcrumb
+            li.breadcrumb-item
+                a(href='/') Home
+            li.breadcrumb-item.active(aria-current='page') HR
+            li.breadcrumb-item.active(aria-current='page')=title
+        // End breadcrumb
+        .ml-auto
+            .input-group
+                a(href="/users/").btn.btn-danger.text-white.mr-2
+                    span
+                        i.fa.fa-list
+                        |  USER LIST 
+
+
+    .card 
+        .card-header
+            h4.card-title USER ADD/UPDATE 
+        .card-body
+            .row 
+                .col-md-6
+                    form#discipline-form(action="#", method="post")
+                        .card
+                            .card-header 
+                                h4.card-title Add/Update Discipline
+                            .card-body
+                                .row 
+                                    .col-md-6 
+                                        label(for="discipline").form-label DISCIPLINE
+                                        select(name="discipline").form-control
+                                            option(value="") Select Discipline--> 
+                                            each val, key in staffList[0]
+                                                option(value=key)=val
+                                .row 
+                                    .col-md-6
+                                        label(for="name").form-label NAME
+                                        input(type="text" name="name").form-control
+                                    .col-md-6
+                                        label(for="email").form-label EMAIL
+                                        input(type="email" name="email").form-control
+                                .row 
+                                    .col-md-12
+                                        label(for="username").form-label USERNAME
+                                        input(type="text" name="username").form-control
+                                    .col-md-6
+                                        label(for="password").form-label PASSWORD
+                                        input(type="password" name="password").form-control
+                                    .col-md-6
+                                        label(for="repassword").form-label RETYPE-PASSWORD
+                                        input(type="password" name="repassword").form-control
+
+                .col-md-6
+                    form(action="#", method="post")
+                        .card 
+                            .card-header 
+                                h4.card-title Add/Update User
+                            .card-body
+                                .row 
+                                    .col-md-4 
+                                        label(for="discipline").form-label Access Level
+                                        select(name="discipline").form-control
+                                            option(value="") Select-->
+                                            option(value="admin") Admin
+                                            option(value="user") User
+                                .row 
+                                    .col-md-6
+                                        label(for="name").form-label NAME
+                                        input(type="text" name="name").form-control
+                                    .col-md-6
+                                        label(for="email").form-label EMAIL
+                                        input(type="email" name="email").form-control
+                                .row 
+                                    .col-md-12
+                                        label(for="username").form-label USERNAME
+                                        input(type="text" name="username").form-control
+                                    .col-md-6
+                                        label(for="password").form-label PASSWORD
+                                        input(type="password" name="password").form-control
+                                    .col-md-6
+                                        label(for="repassword").form-label RETYPE-PASSWORD
+                                        input(type="password" name="repassword").form-control
+                        
+
+block scripts 
+    script(src="/js-page/users.js")

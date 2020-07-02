@@ -1,10 +1,27 @@
-
+const con = require('./connection');
 
 let Options = {
 
+    // Staff LIST
+    saffList : () => {
+        var disciplineDataList = [];
+        return new Promise(resolve => {
+            var g = `SELECT a.staff_id, a.firstname, a.lastname, b.discipline FROM staff_information a 
+            LEFT JOIN staff_professional_information b on a.staff_id = b.staff_id`;
+            con.query(g,(err,rs)=>{
+                if(err) throw err;
+                for(var key in rs){
+                    var data = {};
+                    data[rs[key].staff_id] = rs[key].lastname+" "+rs[key].firstname;
+                    disciplineDataList.push(data);
+                }
+                resolve(disciplineDataList);
+            });
+        });
+    },
 
 
-    // Ethnicity 
+    // Ethnicity LIST
     ethnicityList : () => {
         var data = {
             'Afro American' : 'Afro American',
