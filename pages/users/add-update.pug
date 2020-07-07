@@ -1,6 +1,10 @@
 extends ../../templates/layout
 
+
 block content
+
+    - var xuserid = (data[0] && data[0].access_level === "")? data[0].user_id : ""
+                                        
     .page-header
         ol.breadcrumb
             // breadcrumb
@@ -23,7 +27,7 @@ block content
         .card-body
             .row 
                 .col-md-6
-                    form#discipline-form(action="#", method="post")
+                    form#discipline-form(action="/users/save-update-user", method="post")
                         .card
                             .card-header 
                                 h4.card-title Add/Update Discipline
@@ -31,58 +35,68 @@ block content
                                 .row 
                                     .col-md-6 
                                         label(for="discipline").form-label DISCIPLINE
-                                        select(name="discipline").form-control
-                                            option(value="") Select Discipline--> 
+                                        select#discipline-select(name="discipline").form-control
+                                            option(value=xuserid )=staffList[0][xuserid]
                                             each val, key in staffList[0]
                                                 option(value=key)=val
                                 .row 
                                     .col-md-6
                                         label(for="name").form-label NAME
-                                        input(type="text" name="name").form-control
+                                        input#user-name(type="text" name="name" value=(xuserid != "")? data[0].name : '' readonly).form-control
                                     .col-md-6
                                         label(for="email").form-label EMAIL
-                                        input(type="email" name="email").form-control
+                                        input(type="email" name="email" value=(xuserid != "")? data[0].email : '').form-control
                                 .row 
                                     .col-md-12
                                         label(for="username").form-label USERNAME
-                                        input(type="text" name="username").form-control
+                                        input(type="text" name="username" value=(xuserid != "")? data[0].username : '').form-control
                                     .col-md-6
                                         label(for="password").form-label PASSWORD
                                         input(type="password" name="password").form-control
                                     .col-md-6
                                         label(for="repassword").form-label RETYPE-PASSWORD
                                         input(type="password" name="repassword").form-control
+                                hr
+                                .pull-right 
+                                    button(type="submit").btn.btn-primary
+                                        i.fa.fa-save 
+                                        | SAVE
 
                 .col-md-6
-                    form(action="#", method="post")
+                    form#user-form(action="/users/save-update-user", method="post")
                         .card 
                             .card-header 
                                 h4.card-title Add/Update User
                             .card-body
                                 .row 
                                     .col-md-4 
-                                        label(for="discipline").form-label Access Level
-                                        select(name="discipline").form-control
-                                            option(value="") Select-->
+                                        label(for="accesslevel").form-label Access Level
+                                        select(name="accesslevel").form-control
+                                            option(value=(data[0] && xuserid == "")? data[0].access_level : '' )=(data[0] && xuserid == "")? data[0].access_level : 'Select-->'
                                             option(value="admin") Admin
                                             option(value="user") User
                                 .row 
                                     .col-md-6
                                         label(for="name").form-label NAME
-                                        input(type="text" name="name").form-control
+                                        input(type="text" name="name" value=(data[0] && xuserid == "")? data[0].name : '' ).form-control
                                     .col-md-6
                                         label(for="email").form-label EMAIL
-                                        input(type="email" name="email").form-control
+                                        input(type="email" name="email" value=(data[0] && xuserid == "")? data[0].email : '' ).form-control
                                 .row 
                                     .col-md-12
                                         label(for="username").form-label USERNAME
-                                        input(type="text" name="username").form-control
+                                        input(type="text" name="username" value=(data[0] && xuserid && xuserid == "")? data[0].username : '').form-control
                                     .col-md-6
                                         label(for="password").form-label PASSWORD
                                         input(type="password" name="password").form-control
                                     .col-md-6
                                         label(for="repassword").form-label RETYPE-PASSWORD
                                         input(type="password" name="repassword").form-control
+                                hr
+                                .pull-right 
+                                    button(type="submit").btn.btn-primary
+                                        i.fa.fa-save 
+                                        | SAVE
                         
 
 block scripts 

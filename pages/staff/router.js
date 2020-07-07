@@ -6,6 +6,12 @@ const options = require('../../modules/opions');
 
 
 router.get('/',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     res.render('staff/staff',{
         title : 'Staff',
         staffActive : 'active'
@@ -14,6 +20,12 @@ router.get('/',(req,res,next)=>{
 
 
 router.get('/add-update?',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var  staff_id = (req.query.id)? req.query.id : Master.UniqueID(); 
     staff.staff_data(staff_id).then((e)=>{
         res.render('staff/add-update',{
@@ -28,6 +40,12 @@ router.get('/add-update?',(req,res)=>{
 });
 
 router.get('/remove-staff?',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var staffid  = req.query.id;
     staff.staff_remove(staffid).then((e)=>{
         res.json({
@@ -38,6 +56,12 @@ router.get('/remove-staff?',(req,res)=>{
 });
 
 router.get('/staff-table-list',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     staff.staff_table_list().then((e)=>{
         res.json(e);
         res.end();
@@ -46,6 +70,12 @@ router.get('/staff-table-list',(req,res)=>{
 
 
 router.post('/save-update/(:id)',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+    
     var data = {
         staffid : req.params.id,
         firstname : req.body.firstname,

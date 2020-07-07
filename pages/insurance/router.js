@@ -18,6 +18,12 @@ let source_type = {
 };
 
 router.get('/',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
 
     res.render('insurance/insurance',{
         title : 'Insurance',
@@ -29,6 +35,13 @@ router.get('/',(req,res,next)=>{
 
 //DELETE INSURANCE====================================================
 router.get('/delete-insurance?',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
+
     var insurance_id = req.query.id;
     insurance.insurance_delete(insurance_id).then(e =>{
         res.json({
@@ -40,6 +53,12 @@ router.get('/delete-insurance?',(req,res)=>{
 
 //ADD /EDIT INSURANCE=================================================
 router.get('/add-update-insurance?',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var insurance_id = (req.query.id)? req.query.id : master.UniqueID();
     insurance.insurance_data(insurance_id).then((result)=>{
         res.render('insurance/add-update',{
@@ -56,6 +75,12 @@ router.get('/add-update-insurance?',(req,res,next)=>{
 
 //GET INSURANCE TABLE LIST
 router.get('/insurance-table-list',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     insurance.insurance_table_list().then((e)=>{
         res.json(e);
         res.end();
@@ -65,7 +90,12 @@ router.get('/insurance-table-list',(req,res)=>{
 
 // SAVE UPDATE INSURANCE ==========================================
 router.post('/save-update/(:id)',(req,res)=>{
-
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+    
     let data = {
         insurance_id : req.params.id,
         name : req.body.name,

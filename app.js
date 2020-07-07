@@ -4,8 +4,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const moment = require('moment');
+const session = require('express-session');
+
+
 
 //PAGES REQUIRES
+const loginRouter = require('./pages/login-register/router');
 const dashboardRouter = require('./pages/dashboard/router');
 const patientRouter = require('./pages/patients/router');
 const staffRouter = require('./pages/staff/router');
@@ -21,6 +25,12 @@ const patientDemoRouter = require('./pages/patient-demographic/router');
 
 const app = express();
 app.locals.moment = moment;
+var sess = {
+  secret: 'theassassinsking',
+  resave: true,
+  saveUninitialized: false,
+  cookie: {}
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'pages'));
@@ -33,9 +43,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'pages')));
 app.use(express.static(path.join(__dirname, 'assets')));
+app.use(session(sess));
+
 
 
 //ROUTERS 
+app.use('/login',loginRouter);
 app.use('/', dashboardRouter);
 app.use('/patients', patientRouter);
 app.use('/staff', staffRouter);

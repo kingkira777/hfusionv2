@@ -5,6 +5,13 @@ const Master = require('../../modules/master');
 const patient = require('../patient-demographic/patient');
 
 router.get('/', (req, res, next) => {
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
+
     res.render('patients/patients', {
         title: 'Patients',
         patientActive: 'active',
@@ -15,6 +22,13 @@ router.get('/', (req, res, next) => {
 
 //PATIENT TABLE LIST;/
 router.get('/patient-table-list',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
+
     async function PatientList(){
         var patientList = await patient.patient_tableList();
         res.json(patientList);
@@ -26,6 +40,12 @@ router.get('/patient-table-list',(req,res)=>{
 
 //Add NEW PATIENT
 router.get('/add-patient', (req, res, next) => {
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     res.render('patients/add-patient', {
         title: 'Add New Patients',
         patientActive: 'active',
@@ -39,6 +59,12 @@ router.get('/add-patient', (req, res, next) => {
 
 // SAVE NEW PATIENT
 router.post('/save-patient', (req, res) => {
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+    
     var patientid = Master.UniqueID();
     var data = {
         patientid: patientid,

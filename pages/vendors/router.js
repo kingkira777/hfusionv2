@@ -18,6 +18,11 @@ let types = {
 
 
 router.get('/',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
 
     res.render('vendors/vendors',{
         title : 'Vendors',
@@ -30,6 +35,12 @@ router.get('/',(req,res,next)=>{
 
 // Add / Update Vendor (Render)
 router.get('/add-update?',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var vendor_id = (req.query.id)? req.query.id : master.UniqueID();
     vendor.vendor_data(vendor_id).then(e=>{
         res.render('vendors/add-update',{
@@ -47,6 +58,12 @@ router.get('/add-update?',(req,res,next)=>{
 
 // REMOVE VENDOR
 router.get('/remove-vendor?',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var id = req.query.id;
     vendor.vender_delete(id).then(e => {
         res.json({
@@ -59,6 +76,12 @@ router.get('/remove-vendor?',(req,res)=>{
 
 // GET VENDOR TABLE LIST
 router.get('/vendor-table-list',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     vendor.vendor_table_list().then(e=>{
         res.json(e);
         res.end();
@@ -68,6 +91,12 @@ router.get('/vendor-table-list',(req,res)=>{
 
 //SAVE UPDATE VENDOR
 router.post('/save-update/(:id)',(req,res)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+    
     var data = {
         vendorid : req.params.id,
         name : req.body.name,

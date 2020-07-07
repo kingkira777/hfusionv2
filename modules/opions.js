@@ -2,7 +2,7 @@ const con = require('./connection');
 
 let Options = {
 
-    // Staff LIST
+    // STAFF LIST
     saffList : () => {
         var disciplineDataList = [];
         return new Promise(resolve => {
@@ -12,7 +12,7 @@ let Options = {
                 if(err) throw err;
                 for(var key in rs){
                     var data = {};
-                    data[rs[key].staff_id] = rs[key].lastname+" "+rs[key].firstname;
+                    data[rs[key].staff_id] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
                     disciplineDataList.push(data);
                 }
                 resolve(disciplineDataList);
@@ -21,7 +21,7 @@ let Options = {
     },
 
 
-    // Ethnicity LIST
+    // ETHNICITY LIST
     ethnicityList : () => {
         var data = {
             'Afro American' : 'Afro American',
@@ -36,7 +36,7 @@ let Options = {
         return data;
     },
 
-    // Race 
+    // RACE 
     raceList : () => {
         var data = {
             A1000A : 'American Indian or Alaska Native',
@@ -49,7 +49,7 @@ let Options = {
         return data;
     },
 
-    //Discipline List 
+    //DISCIPLINE LIST 
     disciplineList : () => {
         var data = {
             admin : 'ADMIN',

@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-//Server Host
+//SERVER HOST
 let conServer = () => {
     var _con;
     _con = mysql.createPool({
@@ -12,7 +12,7 @@ let conServer = () => {
     return _con;
 }
 
-//Local Host
+//LOCAL HOST
 let conLocal = () => {
     var _con;
     _con = mysql.createPool({

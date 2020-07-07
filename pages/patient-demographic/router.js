@@ -8,6 +8,12 @@ const patient = require('./patient');
 
 // VIEW PATIENT DEMOGRAPHIC================================================
 router.get('/(:id)',(req,res,next)=>{
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+
     var patientid = (req.params.id)? req.params.id : ''; 
     patient.patient_data(patientid).then((e)=>{
         res.render('patient-demographic/info',{
@@ -25,6 +31,12 @@ router.get('/(:id)',(req,res,next)=>{
 
 // UPDATE PATIENT INFO======================================================
 router.post('/(:id)/update-patient-info',(req,res)=>{     
+    if(!req.session.userid){
+        res.redirect('/login');
+        res.end();
+    }
+    
+    
     var patientid = (req.params.id)? req.params.id : '';
     var data = {
         patientid : patientid,

@@ -5,12 +5,12 @@ let mail = async () =>{
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
+        host: "sg3plvcpnl314452.prod.sin3.secureserver.net",
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
+        user: 'support@triunionhealthcare.com', // generated ethereal user
+        pass: '*Support123!', // generated ethereal password
         },
     });
 
