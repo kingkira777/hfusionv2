@@ -155,15 +155,15 @@ var Patient = {
             con.query(g,gVal,(err,rs)=>{
                 if(err) throw err;
                 var data = {
-                    refdate = (rs[0].refdate)? master.dateFormat(rs[0].refdate,'MM/DD/YYYY') : '',
-                    soc = (rs[0].soc)? master.dateFormat(rs[0].soc,'MM/DD/YYYY') : '',
-                    recert = (rs[0].recert)? master.dateFormat(rs[0].recert,'MM/DD/YYYY') : '',
-                    eoc = (rs[0].eoc)? master.dateFormat(rs[0].eoc,'MM/DD/YYYY') : '',
-                    discharge_code = rs[0].discharge_code,
-                    primary_dx = rs[0].primary_dx,
-                    primary_disease = rs[0].primary_disease,
-                    secondary_dx = rs[0].secondary_dx,
-                    secondary_disease = rs[0].secondary_disease
+                    refdate : (rs[0].refdate)? master.dateFormat(rs[0].refdate,'MM/DD/YYYY') : '',
+                    soc : (rs[0].soc)? master.dateFormat(rs[0].soc,'MM/DD/YYYY') : '',
+                    recert : (rs[0].recert)? master.dateFormat(rs[0].recert,'MM/DD/YYYY') : '',
+                    eoc : (rs[0].eoc)? master.dateFormat(rs[0].eoc,'MM/DD/YYYY') : '',
+                    discharge_code : rs[0].discharge_code,
+                    primary_dx : rs[0].primary_dx,
+                    primary_disease : rs[0].primary_disease,
+                    secondary_dx : rs[0].secondary_dx,
+                    secondary_disease : rs[0].secondary_disease
                 };
                 resolve(data);
             });
