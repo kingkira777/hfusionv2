@@ -3,7 +3,29 @@
 const App = function () {
 
 
+    // Set Input Values
+    let set_input_value = (form, data) => {
+        var _form = $(form);
+        var x = _form.find(':input').length;
+        var keys = Object.keys(data); //Get Array Keys
+        var input = _form.find(':input');
+        for(var key in keys){
+            for(var i=0; i<x;i++){
+                if($(input[i]).attr('name') === keys[key]){
+                    $(input[i]).val(data[keys[key]]);
+                }
+            }
+        }
+    };
 
+
+    // Patient ID using URL
+    let patientIdUsingUrl = (num) => {
+        var url = window.location.pathname;
+        url = url.split('/');
+        var id = (url[num])? url[num] : '';
+        return id;
+    };
 
     //Delete Confimation Message Modal
     let deleteMessageModal = (title,text,type,fnCallback) => {
@@ -61,6 +83,8 @@ const App = function () {
         deleteMessageModal: (title,text,type,fnCallback) => deleteMessageModal(title,text,type,fnCallback),
         convertDateFormat : (date,format) => convertDateFormat(date,format),
         serializeFormData : (data) => serializeFormData(data),
+        patientIdUsingUrl : (num) => patientIdUsingUrl(num),
+        set_input_value : (form,data) => set_input_value(form,data),
     }
 
 

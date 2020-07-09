@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const mail = require('../../modules/mail');
 
+//detect if user is online using Socket.IO
+
+
+
 router.get('/',(req,res,next)=>{
     if(!req.session.userid){
         res.redirect('/login');
         res.end();
     }
-    
     
     res.render('dashboard/dahsboard',{
         title : 'Dashboard',

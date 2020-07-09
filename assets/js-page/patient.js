@@ -2,30 +2,34 @@
 
 var Patient = function(){
 
-
     let initDOM = () => {
         console.log('PATIENT JS');
-
         patient_table_list();
         save_update_patient();
     };
 
+
+
+    //Patient Table==================================
     let patient_table_list = () =>{
         axios.get('/patients/patient-table-list').then(e=>{
-            console.log(e.data);
+            // console.log(e.data);
             table_patient(e.data);
         });
     };
 
 
+    //Save Update Patient Info==================================
     let save_update_patient = () => {
-
         // UPDATE PATIENT INFO
         $('#update-patient-form').submit((e)=>{
             var url = $(e.target).attr('action');
             var formdata = App.serializeFormData($(e.target).serializeArray());
             axios.post(url,formdata).then(e =>{
                 console.log(e.data);
+                if(e.data.message === "updated"){
+                    App.messageModal('Successfuly Updated', '','success','');
+                }
             });
             return e.preventDefault();
         });
@@ -51,6 +55,8 @@ var Patient = function(){
         });
     };
 
+
+    //Table Patient
     let table_patient = (data) => {
         $('#patient-tableList').DataTable({
             data : data,
@@ -71,12 +77,70 @@ var Patient = function(){
             bDestroy : true
         });
     };
+
+
+
+
+
+
+    //PATIENT INSURANCE=================================================================
+    let patient_insurance_data = () => {
+        var patientid = App.patientIdUsingUrl(2);
+        axios.get('/patient/'+patientid+'/insurance').then(e=>{
+            App.set_input_value('#insurance-form',e.data);   
+        });
+    };
+
+    let update_patient_insurance = () => {
+        $('#insurance-form').submit(e => {
+            var url = $(e.target).attr('action');
+            var formdata = App.serializeFormData($(e.target).serializeArray());
+            axios.post(url,formdata).then(e=>{
+                if(e.data.message === "saved" || e.data.message === "updated"){
+                    App.messageModal('Successfuly Saved', '', 'success','');
+                }
+            });
+            return e.preventDefault();
+        });
+    };
+
+
+
+
+
+
+    // DATE OF SERVICE, DIAGNOSIS & ALLERGIES======================================================
+    let update_patient_dateofservice_allergies = () => {
+        $('#dsda-form').submit(e=>{
+            var url = $(e.target).attr('action');
+            var formdata = App.serializeFormData($(e.target).serializeArray());
+            console.log(formdata);
+            e.preventDefault();
+        });
+    };
+
+
+
+
+
+
+
+    //Return Functions ------------------------------
     return {
-        initDOM : () => initDOM()
+        initDOM : () => initDOM(),
+        insurnace : () => {
+            patient_insurance_data();
+            update_patient_insurance();
+        },
+        dateofservice_diagnosisallergies : () => {
+            update_patient_dateofservice_allergies();
+        },
     };
 }();
 
 
 document.addEventListener('DOMContentLoaded',()=>{
     Patient.initDOM();
+    Patient.insurnace();
+    Patient.dateofservice_diagnosisallergies();
 });

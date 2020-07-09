@@ -2,6 +2,26 @@ const con = require('./connection');
 
 let Options = {
 
+
+    // INSURACE LIST
+    insuranceList : () => {
+        var xdata = [];
+        var g = `SELECT * FROM insurance`;
+        return new Promise(resolve => {
+            con.query(g,(err,rs)=>{
+                if(err) throw err;
+                for(var i in rs){
+                    var data = {}
+                    data[rs[i].insurance_id] = rs[i].name;
+                    xdata.push(data);
+                }
+                xdata = (xdata[0])? xdata[0] : [];
+                resolve(xdata);
+            });
+        });
+    },
+
+
     // STAFF LIST
     saffList : () => {
         var disciplineDataList = [];
@@ -15,6 +35,7 @@ let Options = {
                     data[rs[key].staff_id] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
                     disciplineDataList.push(data);
                 }
+                disciplineDataList = (disciplineDataList[0])? disciplineDataList[0] : [];
                 resolve(disciplineDataList);
             });
         });
@@ -48,6 +69,30 @@ let Options = {
         };  
         return data;
     },
+
+    // DISEASE
+    diseaseList : () => {
+        var data = {
+            01 : 'ALS',
+            02 : 'Alzheimer\'s',
+            03 : 'Autoimmune Disease',
+            04 : 'Cancer',
+            05 : 'Dementia',
+            06 : 'Diabetes',
+            07 : 'Digestive Disease',
+            08 : 'FTT/Debility (Non-Specific Disease)',
+            09 : 'Heart Disease',
+            10 : 'HIV Disease',
+            11 : 'Kidney Disease',
+            12 : 'Liver Disease',
+            13 : 'Neuro(CVA, MS, Parkinson\'s)',
+            14 : 'Pulmonary Disease',
+            15 : 'Renal Disease',
+            16 : 'Stroke and Coma',
+            17 : 'Other'
+        };
+        return data;
+    },  
 
     //DISCIPLINE LIST 
     disciplineList : () => {

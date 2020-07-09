@@ -6,6 +6,18 @@ const options = require('../../modules/opions');
 const patient = require('./patient');
 
 
+var insuranceList = [];
+
+router.use((req,res,next)=>{
+    async function initFn(){
+        var instList = await options.insuranceList();
+        insuranceList = instList;
+        next();
+    };
+    initFn();
+});
+
+
 // VIEW PATIENT DEMOGRAPHIC================================================
 router.get('/(:id)',(req,res,next)=>{
     if(!req.session.userid){
@@ -22,7 +34,9 @@ router.get('/(:id)',(req,res,next)=>{
             data : e,
             openPatient : true,
             race: options.raceList(),
-            ethnicity: options.ethnicityList()
+            ethnicity: options.ethnicityList(),
+            insuranceList : insuranceList,
+            diseaseList : options.diseaseList(),
         });
         res.end();
     });
@@ -35,8 +49,7 @@ router.post('/(:id)/update-patient-info',(req,res)=>{
         res.redirect('/login');
         res.end();
     }
-    
-    
+
     var patientid = (req.params.id)? req.params.id : '';
     var data = {
         patientid : patientid,
@@ -67,6 +80,52 @@ router.post('/(:id)/update-patient-info',(req,res)=>{
         res.end();
     });
 });
+
+
+
+//PATIENT INSURACNE===========================================================================
+router.get('/(:id)/insurance',(req,res)=>{
+    if(req.params.id){
+        patient.insurance_data(req.params.id).then(e=>{
+            res.json(e);
+            res.end();
+        });
+    }else{
+        res.json([]);
+        res.end();
+    }
+});
+
+//Update Insurance------------
+router.post('/(:id)/insurance',(req,res)=>{
+    if(req.params.id){
+        var data = {
+            patientid : req.params.id,
+            source : req.body.source,
+            effectivedate :(req.body.effectivedate)? master.dateFormat(req.body.effectivedate,'YYYY-MM-DD') : '',
+            payer : req.body.payer,
+            sharecost : req.body.cost,
+            policyno : req.body.policy,
+            mbino : req.body.mbino,
+            groupno :req.body.groupno,
+            binno : req.body.binno
+        }
+        patient.insurace_update(data).then(e=>{
+            res.json({
+                message : e
+            });
+            res.end();
+        });
+    }else{
+        res.json({
+            message : 'failed'
+        });
+        res.end();
+    }
+});
+
+
+
 
 
 

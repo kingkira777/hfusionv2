@@ -25,4 +25,4 @@ let conLocal = () => {
 }
 
 
-module.exports = conServer();
+module.exports = conLocal();

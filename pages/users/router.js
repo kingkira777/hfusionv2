@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const con = require('../../modules/connection');
 const master = require('../../modules/master');
 const option = require('../../modules/opions');
 const users = require('./users');
@@ -45,9 +44,7 @@ router.get('/add-update?',(req,res)=>{
 
     var userid = (req.query.id)? req.query.id : "";
     users.user_data(userid).then(e => {
-        // console.log(e);
-        // res.send(e);
-        // res.end();
+        console.log(staffList);
         res.render('users/add-update',{
             title : 'Add/Update User',    
             staffActive : 'active',
