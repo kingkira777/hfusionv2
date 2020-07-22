@@ -23,21 +23,51 @@ let Options = {
 
 
     // STAFF LIST
-    saffList : () => {
+    saffList : (_discipline) => {
         var disciplineDataList = [];
         return new Promise(resolve => {
-            var g = `SELECT a.staff_id, a.firstname, a.lastname, b.discipline FROM staff_information a 
-            LEFT JOIN staff_professional_information b on a.staff_id = b.staff_id`;
-            con.query(g,(err,rs)=>{
-                if(err) throw err;
-                for(var key in rs){
-                    var data = {};
-                    data[rs[key].staff_id] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
-                    disciplineDataList.push(data);
-                }
-                disciplineDataList = (disciplineDataList[0])? disciplineDataList[0] : [];
-                resolve(disciplineDataList);
-            });
+            if(!_discipline || _discipline === ""){
+                var g = `SELECT a.staff_id, a.firstname, a.lastname, b.discipline FROM staff_information a 
+                LEFT JOIN staff_professional_information b on a.staff_id = b.staff_id`;
+                con.query(g,(err,rs)=>{
+                    if(err) throw err;
+                    for(var key in rs){
+                        var data = {};
+                        data["id"] = rs[key].staff_id; 
+                        data["name"] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
+                        disciplineDataList.push(data);
+                    }
+                    resolve(disciplineDataList);
+                });
+            }else if(_discipline == "md"){
+                var g = `SELECT a.staff_id, a.firstname, a.lastname, b.discipline FROM staff_information a 
+                LEFT JOIN staff_professional_information b on a.staff_id = b.staff_id
+                WHERE b.discipline = 'md' OR b.discipline = 'rn'`;
+                con.query(g,(err,rs)=>{
+                    if(err) throw err;
+                    for(var key in rs){
+                        var data = {};
+                        data["id"] = rs[key].staff_id; 
+                        data["name"] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
+                        disciplineDataList.push(data);
+                    }
+                    resolve(disciplineDataList);
+                });
+            }else if(_discipline == "others"){
+                var g = `SELECT a.staff_id, a.firstname, a.lastname, b.discipline FROM staff_information a 
+                LEFT JOIN staff_professional_information b on a.staff_id = b.staff_id
+                WHERE (b.discipline != 'md' AND b.discipline != 'rn')`;
+                con.query(g,(err,rs)=>{
+                    if(err) throw err;
+                    for(var key in rs){
+                        var data = {};
+                        data["id"] = rs[key].staff_id; 
+                        data["name"] = rs[key].lastname+" "+rs[key].firstname+"("+rs[key].discipline.toUpperCase()+")";
+                        disciplineDataList.push(data);
+                    }
+                    resolve(disciplineDataList);
+                });
+            }
         });
     },
 

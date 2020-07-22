@@ -6,4 +6,59 @@
             a.card-options-collapse(href='#', data-toggle='card-collapse')
                 i.fe.fe-chevron-up
     .card-body
-        
+        form#rsamd-form(action="/patient/"+patientid+"/rsamd", method="post")  
+            .row
+                .col-md-4
+                    label(for="type") Type 
+                    select#rsamd-type(name="type").form-control 
+                        option(value="") Select-->
+                        option(value="Medical Director") Medical Director
+                        option(value="Referring MD/ Attending MD") Referring MD/ Attending MD
+                        option(value="Hospice Physician Degree") Hospice Physician Degree
+                        option(value="Other Referral") Other Referral
+                    
+                    label(for="staff") Staff List
+                    select#staff-list(name="staff").form-control  
+                        option(value="") Select-->
+                    hr 
+                    .pull-right 
+                        button(type="submit").btn.btn-primary 
+                            i.fa.fa-save 
+                            | SAVE
+                            
+                .col-md-8
+                    .table-responsive 
+                        table.table.table-hover 
+                            tr 
+                                th Name 
+                                th SSN
+                                th Phone
+                                th Fax 
+                                th NPI 
+                                th Type 
+                            tr 
+                                td Jessie Boy Velarde
+                                th 12345679
+                                th 123456780
+                                th 123456780
+                                th 123456780
+                                th Hospice Physician Degree
+
+
+            //- .row 
+            //-     .col-md-4 
+            //-         label(for="medical_director") Medical Director 
+            //-         input(type="text" name="medical_director").form-control
+            //-     .col-md-4 
+            //-         label(for="referring_md") Referring MD/ Attending MD
+            //-         input(type="text" name="referring_md").form-control
+            //-     .col-md-4 
+            //-         label(for="other_referral") Other Referral
+            //-         input(type="text" name="other_referral").form-control
+            //- .row 
+            //-     .col-md-4 
+            //-         label(for="physicina_degree") Hospice Physician Degree 
+            //-         input(type="text" name="physicina_degree").form-control
+            
+
+

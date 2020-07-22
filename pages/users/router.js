@@ -44,7 +44,7 @@ router.get('/add-update?',(req,res)=>{
 
     var userid = (req.query.id)? req.query.id : "";
     users.user_data(userid).then(e => {
-        console.log(staffList);
+        // console.log(staffList[0].id);
         res.render('users/add-update',{
             title : 'Add/Update User',    
             staffActive : 'active',

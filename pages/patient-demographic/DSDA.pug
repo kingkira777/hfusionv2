@@ -5,17 +5,17 @@
             a.card-options-collapse(href='#', data-toggle='card-collapse')
                 i.fe.fe-chevron-up
     .card-body
-        form#dsda-form(action="#", method="post")
+        form#dsda-form(action="/patient/"+patientid+"/dsda", method="post")
             .row 
                 .col-md-3 
                     label(for="refdate").form-label Ref Date 
                     input(type="text" name="refdate").form-control.datePicker
                 .col-md-3 
                     label(for="soc").form-label SOC 
-                    input(type="text" name="soc").form-control.datePicker
+                    input#soc(type="text" name="soc" required).form-control.datePicker
                 .col-md-3 
                     label(for="recert").form-label  Re-Cert
-                    input(type="text" name="recert").form-control.datePicker
+                    input#recert(type="text" name="recert" required).form-control.datePicker
                 .col-md-3 
                     label(for="eoc").form-label EOC 
                     input(type="text" name="eoc").form-control.datePicker
@@ -31,6 +31,27 @@
                     label(for="discharge_code").form-label Discharged Code 
                     select(name="discharge_code").form-control  
                         option(value="") Select-->
+
+            hr 
+            .row 
+                .col-md-4 
+                    label(for="admit_type").form-label Admit Type
+                    select#admit-type(name="admit_type"  required).form-control  
+                        option(value="") Select-->
+                        option(value="New Admission") New Admission
+                        option(value="Re-Admission") Re-Admission
+                        option(value="Transfer From Another Hospice") Transfer From Another Hospice
+                .col-md-2 
+                    label(for="start_cert") Start Cert #
+                    select#start-cert(name="start_cert" required).form-control
+                .col-md-4 
+                    label(for="transfer_from").form-label Transfer From
+                    input(type="text" name="transfer_from").form-control
+                .col-md-2 
+                    label(for="cert_valid_to").form-label Cert Valid To
+                    input(type="text" name="cert_valid_to" placeholder="MM/DD/YYYY").form-control.datePicker
+
+
 
             hr 
             .row 

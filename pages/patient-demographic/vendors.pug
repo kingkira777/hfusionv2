@@ -6,4 +6,26 @@
             a.card-options-collapse(href='#', data-toggle='card-collapse')
                 i.fe.fe-chevron-up
     .card-body
-        
+        form#vendors-form(action="/patient/"+patientid+"/vendor", method="post")    
+            .row 
+                .col-md-4 
+                    label(for="pharma_main")  Pharmacy Main 
+                    input(type="text" name="pharma_main").form-control
+                    label(for="pharma_alt")  Pharmacy Alt 
+                    input(type="text" name="pharma_alt").form-control
+                .col-md-4
+                    label(for="dme_main")  DME Main 
+                    input(type="text" name="dme_main").form-control
+                    label(for="dme_alt")  DME Alt 
+                    input(type="text" name="dme_alt").form-control
+                .col-md-4
+                    label(for="others_main")  Others Main 
+                    input(type="text" name="others_main").form-control
+                    label(for="others_alt")  Others Alt 
+                    input(type="text" name="others_alt").form-control
+
+            hr 
+            .pull-right 
+                button(type="submit").btn.btn-primary 
+                    i.fa.fa-save 
+                    |   UPDATE

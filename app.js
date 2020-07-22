@@ -8,7 +8,7 @@ const session = require('express-session');
 
 
 
-//PAGES REQUIRES
+//REQUIRE PAGES 
 const loginRouter = require('./pages/login-register/router');
 const dashboardRouter = require('./pages/dashboard/router');
 const patientRouter = require('./pages/patients/router');
@@ -44,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'pages')));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(session(sess));
-
 
 
 //ROUTERS 

@@ -10,8 +10,6 @@ router.get('/',(req,res,next)=>{
         res.redirect('/login');
         res.end();
     }
-    
-
     res.render('staff/staff',{
         title : 'Staff',
         staffActive : 'active'

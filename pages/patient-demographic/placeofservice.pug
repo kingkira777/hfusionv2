@@ -7,3 +7,57 @@
                 i.fe.fe-chevron-up
     .card-body
         
+        form#pos-form(action="/patient/"+patientid+"/placeofservice", method="post")
+            .row 
+                .col-md-4 
+                    label(for="type") Type
+                    input(type="text" name="type").form-control
+                .col-md-4 
+                    label(for="effective_date") Effective Date 
+                    input(type="text" name="effective_date" placeholder="MM/DD/YYYY").form-control.datePicker
+            .row 
+                .col-md-4 
+                    label(for="facility_name") Facility Name
+                    input(type="text" name="facility_name").form-control
+                .col-md-4 
+                    label(for="unit_no") Unit No
+                    input(type="text" name="unit_no").form-control
+                .col-md-4 
+                    label(for="pcg") PCG
+                    input(type="text" name="pcg").form-control
+            .row 
+                .col-md-4 
+                    label(for="npi") NPI
+                    input(type="text" name="npi").form-control
+                .col-md-4 
+                    label(for="rnb_rate") R&B RATE
+                    input(type="text" name="rnb_rate").form-control
+            .row 
+                .col-md-4 
+                    label(for="phone") Phone
+                    input(type="text" name="phone").form-control
+                .col-md-4 
+                    label(for="alt_phone") Alt-Phone 
+                    input(type="text" name="alt_phone").form-control
+                .col-md-4 
+                    label(for="fax") Fax
+                    input(type="text" name="fax").form-control
+            .row 
+                .col-md-4 
+                    label(for="address") Address
+                    input(type="text" name="address").form-control
+                .col-md-3 
+                    label(for="city") City 
+                    input(type="text" name="city").form-control
+                .col-md-3 
+                    label(for="state") State
+                    input(type="text" name="state").form-control
+                .col-md-2 
+                    label(for="zipcode") Zipcode
+                    input(type="text" name="zipcode").form-control
+            hr 
+            .pull-right 
+                button(type="submit").btn.btn-primary 
+                    i.fa.fa-save 
+                    |   UPDATE
+

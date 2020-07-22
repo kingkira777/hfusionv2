@@ -1,9 +1,59 @@
 //- .card-collapsed
 .card
     .card-header
-        h3.card-title Authorized of Service, Diagnosis & Allergies
+        h3.card-title Authorized of Rep(AR), Emergency Contact(EC)
         .card-options
             a.card-options-collapse(href='#', data-toggle='card-collapse')
                 i.fe.fe-chevron-up
     .card-body
-        
+        form#arec-form(action="/patient/"+patientid+"/arec", method="post")
+            .row 
+                .col-md-4 
+                    label(for="lastname") Lastname
+                    input(type="text" name="lastname").form-control
+                .col-md-4 
+                    label(for="firstname") Firstname
+                    input(type="text" name="firstname").form-control
+                .col-md-4 
+                    label(for="email") Email
+                    input(type="text" name="email").form-control   
+            .row 
+                .col-md-4 
+                    label(for="phone") Phone
+                    input(type="text" name="phone").form-control
+                .col-md-4 
+                    label(for="altphone") Alt Phone
+                    input(type="text" name="altphone").form-control
+                .col-md-4 
+                    label(for="fax") Fax
+                    input(type="text" name="fax").form-control       
+            .row 
+                .col-md-4 
+                    label(for="relationship") Relationship
+                    input(type="text" name="relationship").form-control
+                .col-md-4 
+                    label(for="arec_is") AC EC is
+                    input(type="text" name="arec_is").form-control
+                .col-md-4 
+                    label(for="patient_is") Patient is
+                    input(type="text" name="patient_is").form-control    
+            .row 
+                .col-md-4 
+                    label(for="address") Address
+                    input(type="text" name="address").form-control
+                .col-md-3 
+                    label(for="city") City
+                    input(type="text" name="city").form-control
+                .col-md-3 
+                    label(for="state") State
+                    input(type="text" name="state").form-control   
+                .col-md-2 
+                    label(for="zipcode") Zipcode
+                    input(type="text" name="zipcode").form-control   
+
+            hr 
+
+            .pull-right 
+                button(type="submit").btn.btn-primary 
+                    i.fa.fa-save 
+                    | UPDATE

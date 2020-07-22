@@ -23,7 +23,7 @@ const App = function () {
     let patientIdUsingUrl = (num) => {
         var url = window.location.pathname;
         url = url.split('/');
-        var id = (url[num])? url[num] : '';
+        var id = (url[num] && url[num] != "")? url[num] : "";
         return id;
     };
 

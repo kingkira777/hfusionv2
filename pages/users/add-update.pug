@@ -36,9 +36,9 @@ block content
                                     .col-md-6 
                                         label(for="discipline").form-label DISCIPLINE
                                         select#discipline-select(name="discipline").form-control
-                                            option(value=xuserid )=(staffList)? staffList[xuserid] : ''
+                                            option(value=xuserid ) Select-->
                                             each val, key in staffList
-                                                option(value=staffList[key].staff_id)=staffList[key].lastname+" "+staffList[key].firstname
+                                                option(value=staffList[key].id)= staffList[key].name
                                 .row 
                                     .col-md-6
                                         label(for="name").form-label NAME
